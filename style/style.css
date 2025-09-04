@@ -2,3 +2,22 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 /* Custom CSS */
+
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+.font-bn{
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+.dropdown{
+    display: hidden;
+}
+
+.banner{
+    justify-content: center;
+    align-items: center;
+    
+}

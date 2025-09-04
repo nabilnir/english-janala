@@ -31,8 +31,102 @@
 </head>
 
 <body>
-     <h1 class="text-2xl">English Janala</h1>
+    <header>
+        <div class="navbar bg-blue-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown lg:hidden">
+                    <label tabindex="0" role="button" class="btn btn-ghost block lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </label>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <button class="btn w-[100%] mt-2">
+                                <i class="fa-solid fa-circle-question"></i>
+                                <a href="./index.html" class="font-bold"> FAQ</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn  w-[100%] mt-2">
+                                <i class="fa-solid fa-book"></i>
+                                <a href="./index.html" class="font-bold">Learn</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn  w-[100%] mt-2">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <a href="./index.html" class="font-bold">Logout</a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
 
+                <a class="flex items-center gap-1">
+                    <Span class="text-lg font-bold">English</Span><img class="w-6" src="./assets/logo.png" alt=""> <span
+                        class="font-bn text-lg font-lightbold mt-1">জানালা</span> </a>
+            </div>
+            <div class="navbar-end hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 space-x-4">
+                    <li>
+                        <button class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <a href="./index.html" class="font-bold"> FAQ</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-book"></i>
+                            <a href="./index.html" class="font-bold">Learn</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href="./index.html" class="font-bold">Logout</a>
+                        </button>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+    <!--banner-->
+
+    <div class="justify-center items-center text-center  mb-10   px-35">
+        <section class="banner flex flex-col lg:flex-row items-center min-h-[80vh] px-4  gap-10 justify-center">
+            <!-- Left: Text Content -->
+            <div class="flex-1 flex flex-col items-start justify-center gap-6 max-w-xl">
+                <h1 class="text-4xl lg:text-5xl font-bold">
+                    <span class="text-blue-600">English</span> is Easy!!
+                </h1>
+                <p class="text-lg text-gray-700 font-medium font-bn text-left">
+                    আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                </p>
+                <form class="flex flex-col gap-4 w-full max-w-sm">
+                    <input type="text" placeholder="Enter Your Name" class="input input-bordered w-full" />
+                    <input type="password" placeholder=".................." class="input input-bordered w-full" />
+                    <button type="submit" class="btn btn-primary w-[30%]">Get Started</button>
+                </form>
+            </div>
+            <!-- Right: Image -->
+            <div class="flex-1 flex items-center justify-center mt-10 lg:mt-0">
+                <div class="relative">
+                    <img src="./assets/hero-student.png" alt="Banner"
+                        class="relative z-10 w-[100%] h-[100%] object-cover" />
+                </div>
+            </div>
+
+    </div>
+
+    </section>
 
     <script src="./script/script.js"></script>
     <script src="./script/script.json"></script>
