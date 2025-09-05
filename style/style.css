@@ -1,23 +1,140 @@
 @import "tailwindcss";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 /* Custom CSS */
-
-
-*{
+* {
     font-family: "Poppins", sans-serif;
 }
 
-.font-bn{
+.font-bn {
     font-family: "Hind Siliguri", sans-serif;
 }
 
-.dropdown{
-    display: hidden;
-}
-
-.banner{
+.banner {
     justify-content: center;
     align-items: center;
+}
+
+#dropDown {
+    display: none; 
+}
+
+.card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-btn:hover {
+    background-color: rgb(14 165 233);
+    color: white;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Word container responsive styling */
+#word-Container {
+    min-height: 200px;
+}
+
+.active {
+    background-color: #422ad5;
+    color: white;
+    border: none;
+}
+
+/* Improved responsive design */
+@media screen and (max-width: 768px) {
+    .banner {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 20px;
+        min-height: 70vh;
+    }
+
+    #dropDown {
+        display: block;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+    }
+
+    .banner-text {
+        margin-top: 20px;
+    }
+
+    #nav-bar {
+        display: none;
+    }
+
+    .lesson-class {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .get-str {
+        width: 60% !important;
+        margin: 10px auto;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    /* Card responsiveness */
+    .word-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+    }
+
+    /* Typography adjustments for mobile */
+    h1 {
+        font-size: 1.5rem !important;
+    }
     
+    h2 {
+        font-size: 1.25rem !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner h1 {
+        font-size: 2rem !important;
+    }
+    
+    .banner p {
+        font-size: 0.9rem !important;
+    }
+    
+    .get-str {
+        width: 80% !important;
+        font-size: 12px;
+    }
+    
+    /* Even smaller cards on very small screens */
+    .card-btn {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+    
+    .lesson-class {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Better spacing and layout */
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
