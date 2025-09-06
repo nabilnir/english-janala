@@ -65,9 +65,10 @@
                     </ul>
                 </div>
 
-                <a class="flex items-center gap-1">
+                <a class="flex items-center gap-1 ml-5">
                     <Span class="text-lg font-bold">English</Span><img class="w-6" src="./assets/logo.png" alt=""> <span
-                        class="font-bn text-lg font-lightbold mt-1">জানালা</span> </a>
+                        class="font-bn text-lg font-lightbold mt-1">জানালা</span>
+                </a>
             </div>
             <div class="navbar-end  lg:flex " id="nav-bar">
                 <ul class="menu menu-horizontal px-1 space-x-4">
@@ -134,6 +135,14 @@
 
         <div id="level-container" class="lesson-class sm:grid grid-col-2 lg:flex gap-3 justify-center  p-3 "></div>
     </section>
+
+    <!-- loading section -->
+
+    <section class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-bars loading-xl"></span>
+    </section>
+
+
     <section id="wordContainer"
         class="bg-gray-100 mb- 10 p-10 w-11/12 mx-auto my-10 rounded-2xl  grid grid-cols-1 gap-5 lg:grid-cols-3">
         <div class="justify-center items-center text-center  font-bn col-span-full">
@@ -150,7 +159,7 @@
     <div>
         <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box w-[400px] max-w-none bg-white rounded-2xl p-0 relative">
+            <div class="modal-box w-[400px] max-w-none bg-white rounded-2xl p-0 relative" id="modalBox">
                 <!-- Close button -->
 
 
@@ -158,11 +167,14 @@
                 <div class="border-2 border-blue-200 rounded-2xl p-6">
                     <!-- Header with word and pronunciation -->
                     <div class="mb-6 flex justify-between">
-                        
+
                         <h3 class="text-2xl font-bold text-black mb-2">
                             Eager
                             (<span class="inline-flex items-center ml-2">
-                                <i class="fa-solid fa-volume-high text-gray-600 cursor-pointer"></i>
+                                <button onclick="pronounceWord('${word.word}')"
+                                    class="btn btn-sm btn-circle bg-sky-500/10">
+                                    <i class="fa-solid fa-volume-high text-sky-600"></i>
+                                </button>
                                 <span class="ml-1 font-bn">:ইগার)</span>
                             </span>
                         </h3>
