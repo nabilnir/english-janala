@@ -1,3 +1,18 @@
+const manageSpinner = (status) => {
+
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("wordContainer").classList.add("hidden");
+    }
+    else {
+        document.getElementById("wordContainer").classList.remove("hidden");
+        document.getElementById("spinner").classList.add("hidden");
+    }
+
+}
+
+
+
 const loadLessons = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then((res) => res.json())
@@ -16,7 +31,7 @@ const removeActive = () => {
 
 const loadLevelWord = (id) => {
 
-
+    manageSpinner(true);
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
 
     fetch(url)
@@ -114,6 +129,7 @@ const displayLevelWord = (words) => {
             
         </div>
         `
+        manageSpinner(false);
         return;
     }
 
@@ -137,6 +153,8 @@ const displayLevelWord = (words) => {
         `;
         wordContainer.append(card);
     });
+
+    manageSpinner(false);
 }
 
 const displayLesson = (lessons) => {
@@ -164,22 +182,22 @@ const pronounceWord = (word) => {
     if ('speechSynthesis' in window) {
         // Cancel any ongoing speech
         speechSynthesis.cancel();
-        
+
         // Function to speak with female voice
         const speakWithFemaleVoice = () => {
             const utterance = new SpeechSynthesisUtterance(word);
-            
+
             // Set speech properties for clear female voice
             utterance.rate = 0.75; // Optimal speed for clarity
             utterance.pitch = 1.2; // Higher pitch for female voice
             utterance.volume = 1; // Maximum volume
             utterance.lang = 'en-US'; // English pronunciation
-            
+
             // Get all available voices
             const voices = speechSynthesis.getVoices();
-            
+
             // Find female English voices (priority order)
-            const femaleVoice = voices.find(voice => 
+            const femaleVoice = voices.find(voice =>
                 voice.lang.startsWith('en') && (
                     voice.name.toLowerCase().includes('female') ||
                     voice.name.toLowerCase().includes('zira') ||
@@ -194,19 +212,19 @@ const pronounceWord = (word) => {
                     voice.name.toLowerCase().includes('veena') ||
                     voice.name.toLowerCase().includes('serena')
                 )
-            ) || voices.find(voice => 
+            ) || voices.find(voice =>
                 voice.lang === 'en-US' && !voice.name.toLowerCase().includes('male')
             ) || voices.find(voice => voice.lang.startsWith('en'));
-            
+
             if (femaleVoice) {
                 utterance.voice = femaleVoice;
                 console.log('Using voice:', femaleVoice.name);
             }
-            
+
             // Speak the word
             speechSynthesis.speak(utterance);
         };
-        
+
         // Ensure voices are loaded before speaking
         if (speechSynthesis.getVoices().length === 0) {
             speechSynthesis.addEventListener('voiceschanged', speakWithFemaleVoice, { once: true });
@@ -220,3 +238,35 @@ const pronounceWord = (word) => {
 };
 
 loadLessons();
+
+document.getElementById("btn-search").addEventListener("click", () => {
+    removeActive();
+    manageSpinner(true); // Show loading spinner during search
+
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase(); // Fixed: toLowerCase() not tolowerCase()
+    
+    console.log(searchValue);
+
+    if (searchValue === "") {
+        alert("Please enter a word to search");
+        manageSpinner(false);
+        return;
+    }
+
+    fetch("https://openapi.programming-hero.com/api/words/all")
+        .then(res => res.json())
+        .then(data => {
+            const allWords = data.data;
+            console.log(allWords);
+            const filterWords = allWords.filter((word) => 
+                word.word.toLowerCase().includes(searchValue)
+            );
+            displayLevelWord(filterWords);
+        })
+        .catch(error => {
+            console.error("Search error:", error);
+            manageSpinner(false);
+        });
+});
+

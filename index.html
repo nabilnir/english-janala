@@ -136,9 +136,24 @@
         <div id="level-container" class="lesson-class sm:grid grid-col-2 lg:flex gap-3 justify-center  p-3 "></div>
     </section>
 
+    <!-- search section -->
+
+    <section class="flex justify-center mt-6">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+                    <input id="input-search" type="text" placeholder="Search Vocabulary Now" required />
+                </label>
+            </div>
+            <button id="btn-search" class="btn btn-primary join-item">
+                Search
+            </button>
+        </div>
+    </section>
+
     <!-- loading section -->
 
-    <section class="flex justify-center items-center py-10 hidden">
+    <section id="spinner" class="flex justify-center items-center py-10 hidden">
         <span class="loading loading-bars loading-xl"></span>
     </section>
 
